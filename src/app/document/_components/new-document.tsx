@@ -4,14 +4,23 @@ import {
 	CardFooter,
 	CardHeader,
 } from "@/components/ui/card";
+import axios from "axios";
 import { Plus } from "lucide-react";
 import React from "react";
 
 export const NewDocument = () => {
+	const createNewDoc = async () => {
+        try {
+            const response = await axios.post('/api/document/new');
+        } catch (error) {
+
+        }
+    };
+
 	const TemplateMap = [
 		{
 			component: (
-				<button>
+				<button onClick={() => createNewDoc()}>
 					<Card className="w-[150px] hover:border hover:border-blue-500 hover:cursor-pointer">
 						<CardHeader></CardHeader>
 						<CardContent className="flex justify-center mx-auto">
@@ -28,7 +37,6 @@ export const NewDocument = () => {
 
 	return (
 		<div className="bg-gray-50 h-[300px] flex flex-row md:flex-col justify-center flex-wrap">
-			NewDocument
 			<div className="flex flex-col space-y-4 w-10/12 mx-auto flex-wrap">
 				<h3 className="text-muted-foreground text-sm ">
 					Start a new document

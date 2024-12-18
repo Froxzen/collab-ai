@@ -1,4 +1,4 @@
-"use client"; // Ensure this is a client component
+"use client"; 
 import { useAuth } from "@clerk/nextjs";
 import React from "react";
 import IntroPage from "./intro-page";
