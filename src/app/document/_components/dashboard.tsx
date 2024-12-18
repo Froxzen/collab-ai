@@ -1,11 +1,11 @@
-"use client"; 
-import { useAuth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import React from "react";
 import IntroPage from "./intro-page";
 import { NewDocument } from "./new-document";
+import { RecentDocument } from "./recent-document";
 
-export const Dashboard = () => {
-	const { userId } = useAuth(); // Client-side authentication
+export const Dashboard = async () => {
+	const { userId } = await auth();
 
 	if (!userId) {
 		return <IntroPage />;
@@ -14,6 +14,7 @@ export const Dashboard = () => {
 	return (
 		<div>
 			<NewDocument />
+			<RecentDocument />
 		</div>
 	);
 };

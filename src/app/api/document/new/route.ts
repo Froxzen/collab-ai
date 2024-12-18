@@ -1,11 +1,11 @@
 import { db } from "@/utils/db";
-import { getAuth } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
 	try {
-		const { userId } = getAuth(req);
+		const { userId } = await auth();
 
 		if (!userId) {
 			return new NextResponse("User Not Authenticated", { status: 401 });
