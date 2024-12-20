@@ -1,12 +1,12 @@
-import React from 'react'
-import { Dashboard } from './_components/dashboard'
+import React from "react";
+import { Dashboard } from "./_components/dashboard";
 
 const DocumentPage = () => {
   return (
     <div>
-        <Dashboard />
+      <Dashboard />
     </div>
-  )
-}
+  );
+};
 
-export default DocumentPage
+export default DocumentPage;

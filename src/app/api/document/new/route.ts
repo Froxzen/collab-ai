@@ -4,24 +4,26 @@ import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-	try {
-		const { userId } = await auth();
+  try {
+    const { userId } = auth();
 
-		if (!userId) {
-			return new NextResponse("User Not Authenticated", { status: 401 });
-		}
+    if (!userId) {
+      return new NextResponse("User Not Authenticated", { status: 401 });
+    }
 
-		const createNewDoc = await db.document.create({
-			data: {
-				userId: userId,
-				title: "Untitled Document",
-				description: "",
-			},
-		});
+    const { title, description } = await req.json();
 
-		revalidatePath("/");
-		return NextResponse.json(createNewDoc, { status: 200 });
-	} catch (error) {
-		return new NextResponse("POST NEW DOC ERROR", { status: 500 });
-	}
+    const createNewDoc = await db.document.create({
+      data: {
+        userId: userId,
+        title: title,
+        description: description,
+      },
+    });
+
+    revalidatePath("/");
+    return NextResponse.json(createNewDoc, { status: 200 });
+  } catch (error) {
+    return new NextResponse("POST, NEW DOC ERROR", { status: 500 });
+  }
 }
