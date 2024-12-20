@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 
 const openai = new OpenAI({
+	// If you get an error, just hardcore the key here
 	apiKey: process.env.OPENAI_API_KEY,
 	dangerouslyAllowBrowser: true,
 });
