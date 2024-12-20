@@ -1,5 +1,5 @@
 # Collab AI
-This project is an AI document editor built with Next.js, React, and OpenAI. It allows users to create, edit, and manage documents with the help of AI-powered suggestions.
+This project is an AI document editor built with Next.js, React,PostgreSQL and OpenAI. It allows users to create, edit, and manage documents with the help of AI-powered suggestions.
 
 ## Getting Started
 1. Clone the repository:
