@@ -14,10 +14,10 @@ datasource db {
 }
 
 model Document {
-  id String @id @default(uuid())
-  userId String 
-  title String?
+  id          String   @id @default(uuid())
+  userId      String
+  title       String?
   description String?
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  createAt    DateTime @default(now())
+  updateAt    DateTime @updatedAt
 }
